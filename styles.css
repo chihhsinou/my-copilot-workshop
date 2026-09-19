@@ -1,0 +1,160 @@
+/* 使用 CSS 變數集中管理顏色 */
+:root {
+  --color-bg: #f0f2f5;
+  --color-card-bg: #ffffff;
+  --color-primary: #4a6cf7;
+  --color-primary-hover: #3a5ce0;
+  --color-text: #2d2f36;
+  --color-text-muted: #9a9ea6;
+  --color-border: #e5e7eb;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px 16px;
+  background-color: var(--color-bg);
+  font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+  color: var(--color-text);
+}
+
+/* 卡片式版面,置中並限制最大寬度 */
+.card {
+  width: 100%;
+  max-width: 520px;
+  background-color: var(--color-card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.todo-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.todo-form input[type="text"] {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.todo-form input[type="text"]:focus {
+  border-color: var(--color-primary);
+}
+
+.todo-form button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.todo-form button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.todo-item .todo-text {
+  flex: 1;
+  word-break: break-all;
+}
+
+/* 已完成的項目加上刪除線並淡化 */
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.todo-item .delete-btn {
+  border: none;
+  background: none;
+  color: var(--color-danger);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.todo-item .delete-btn:hover {
+  background-color: var(--color-danger);
+  color: #fff;
+}
+
+.empty-hint {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin: 20px 0;
+}
+
+.todo-footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* 手機螢幕的響應式調整 */
+@media (max-width: 480px) {
+  .card {
+    padding: 16px;
+  }
+
+  .todo-form {
+    flex-direction: column;
+  }
+
+  .todo-form button {
+    width: 100%;
+  }
+}
