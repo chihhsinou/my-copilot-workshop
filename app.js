@@ -81,9 +81,9 @@
     emptyHint.textContent = todos.length === 0
       ? "還沒有任何待辦事項,新增一個吧!"
       : currentFilter === "active"
-        ? "目前沒有未完成的待辦事項"
+          ? "目前沒有未完成的待辦事項,其他項目可能被目前的篩選條件隱藏"
         : currentFilter === "completed"
-          ? "目前沒有已完成的待辦事項"
+          ? "目前沒有已完成的待辦事項,其他項目可能被目前的篩選條件隱藏"
           : "還沒有任何待辦事項,新增一個吧!";
     emptyHint.style.display = visibleTodos.length === 0 ? "block" : "none";
 
