@@ -8,7 +8,10 @@
 </head>
 <body>
   <main class="card">
-    <h1>待辦清單</h1>
+    <header class="title-bar">
+      <h1>待辦清單</h1>
+      <button type="button" id="theme-toggle" class="theme-toggle"></button>
+    </header>
 
     <!-- 新增待辦事項的輸入區 -->
     <form id="todo-form" class="todo-form">
@@ -21,11 +24,18 @@
       <button type="submit">新增</button>
     </form>
 
+    <!-- 篩選待辦事項的檢視範圍 -->
+    <div class="filter-bar" role="group" aria-label="待辦事項篩選">
+      <button type="button" class="filter-btn active" data-filter="all">全部</button>
+      <button type="button" class="filter-btn" data-filter="active">未完成</button>
+      <button type="button" class="filter-btn" data-filter="completed">已完成</button>
+    </div>
+
     <!-- 待辦事項列表 -->
     <ul id="todo-list" class="todo-list"></ul>
 
     <!-- 清單為空時顯示的提示文字 -->
-    <p id="empty-hint" class="empty-hint">還沒有任何待辦事項,新增一個吧!</p>
+    <p id="empty-hint" class="empty-hint"></p>
 
     <!-- 底部統計未完成項目數量 -->
     <div class="todo-footer">
